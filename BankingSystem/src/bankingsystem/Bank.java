@@ -47,7 +47,18 @@ public class Bank {
             e.printStackTrace();
         }
     }
-
+    
+    public void removeAccount(int accountNumber) {
+    	loadAccounts();
+	    if (accounts.containsKey(accountNumber)) {
+	        accounts.remove(accountNumber);
+	        generatedAccountNumbers.remove(accountNumber);
+	        saveAccounts();
+	        System.out.println("Account with account number " + accountNumber + " has been removed.");
+	    } else {
+	        System.out.println("Account with account number " + accountNumber + " not found.");
+	    }
+	}
     void saveAccounts() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Account account : accounts.values()) {

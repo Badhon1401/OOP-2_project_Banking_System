@@ -6,7 +6,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
     private int age;
-    private int accountNumber=generateAccountNumber();  // New field to store the account number
+    private int accountNumber=generateAccountNumber();  
 
     public User(String name, int age) {
         this.name = name;
